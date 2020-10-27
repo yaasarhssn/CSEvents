@@ -42,3 +42,22 @@ module.exports.updateSpecificUser=function(req,res){
         console.log(err);
         })
 }
+
+module.exports.loginUser=function(req,res){
+    console.log("inside loginnnnnn");
+  var email= req.body.email;
+  var password = req.body.password;
+  console.log("email and password",email,password)
+
+  mysql_client.query('SELECT * FROM csevents.csusers WHERE email = ?'[email], (err, rows, fields) => {
+		console.log(rows)
+	if (err){
+		res.send(rows);
+		console.log("Invalid user",err);
+	}
+  else
+  console.log("valid user");
+  })
+
+ 
+}

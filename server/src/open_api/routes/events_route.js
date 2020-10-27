@@ -1,4 +1,5 @@
 var ctrlEvents = require('../controllers/eventcontrollers');
+console.log("insideRoute");
 
 module.exports = function(router) {
     console.log('CSEVENT APIs');
@@ -11,7 +12,10 @@ module.exports = function(router) {
     router
         .route('/api/deleteUser/:id')
         .get(ctrlEvents.deleteSpecificUser);
-        router
+    router
         .route('/api/updateUserEmail/:id/:email')
         .get(ctrlEvents.updateSpecificUser);
+    router
+        .route('/api/login')
+        .post(ctrlEvents.loginUser);
 }
